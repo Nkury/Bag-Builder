@@ -8,22 +8,41 @@ public class BagManager : Manager
 {
     private static readonly string DEFAULT_BAG_NAME = "GameData/Bag/Default_Bag.json";
     private static readonly string CURRENT_RUN_BAG_NAME = "GameData/Bag/Bag_Run" + PlayerPrefs.GetInt( PlayerPrefsKey.RUN_COUNT ) + ".json";
+    private static readonly string BAG_DIRECTORY = "GameData/Bag/";
 
     private Bag _bag;
+
+    private Dictionary<string , Bag> _enemyBags;
 
     private string _filePath;
 
     public override void Setup()
     {
         base.Setup ( );
+        _enemyBags = new Dictionary<string , Bag>();
 
         _filePath = ( File.Exists( CURRENT_RUN_BAG_NAME ) ) ? CURRENT_RUN_BAG_NAME : DEFAULT_BAG_NAME;
-        SaveBag();
-        LoadBag();
-        _bag.DrawOrb();
+
+        LoadPlayerBag();
+
+        string[] fileNames = Directory.GetFiles( BAG_DIRECTORY );
+        foreach( string fileName in fileNames )
+        {
+            if( fileName != DEFAULT_BAG_NAME )
+            {
+                LoadEnemyBags( fileName );
+            }
+        }
     }
 
-    private void LoadBag()
+    private void LoadEnemyBags(string fileName )
+    {
+        string json = File.ReadAllText( fileName );
+        Bag bag = JsonUtility.FromJson<Bag>( json );
+        _enemyBags.Add( bag.BagName, bag );
+    }
+
+    private void LoadPlayerBag()
     {
         string json = File.ReadAllText( _filePath );
         _bag = JsonUtility.FromJson<Bag>( json );
@@ -38,19 +57,20 @@ public class BagManager : Manager
 
     public override void Teardown()
     {
-        if( !string.IsNullOrEmpty( _filePath ) )
-        {
-            SaveBag();
-        }
+        // ADD BACK IN ONCE WE HAVE PERSISTENT DATA
+      //  if( !string.IsNullOrEmpty( _filePath ) )
+      //  {
+      //      SaveBag();
+      //  }
     }
 
-    public bool MeetsRequirements(OrbRequirements orbRequirements )
+    public bool MeetsRequirements(List<Requirement> orbRequirements )
     {
-        int numRequirements = orbRequirements.orbRequirements.Count;
+        int numRequirements = orbRequirements.Count;
 
         for(int reqIndex = 0; reqIndex < numRequirements; reqIndex++ )
         {
-            Requirement req = orbRequirements.orbRequirements[ reqIndex ];
+            Requirement req = orbRequirements[ reqIndex ];
             if( _bag.DrawnQuantityTable[(int)req.orbType] < req.quantity )
             {
                 return false;

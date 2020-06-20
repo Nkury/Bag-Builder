@@ -5,7 +5,9 @@ public enum OrbType
     FIRE,
     ICE,
     LIGHTNING,
-    SKULL
+    SKULL,
+    STAB,
+    REST
 }
 
 [Serializable]

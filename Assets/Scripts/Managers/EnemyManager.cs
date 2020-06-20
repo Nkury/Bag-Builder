@@ -1,38 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum EnemyType
-{
-    IMP,
-    GOBLIN,
-    BAT,
-    WORM_TERROR,
-    WISPS,
-    SLIME,
-    HANDS,
-    PIN_CUSHION,
-    ABOMINATION
-}
+using System.IO;
 
 public class EnemyManager : Manager
 {
-    private static readonly string _enemyFilePath = "Enemies";
+    private static readonly string _enemyFilePath = "GameData/Enemies/";
 
     public static System.Action<int> EnemyDealtDamage;
 
     private Enemy _currentEnemy;
 
-    private List<Enemy> _dungeonEnemies;
+    private Dictionary<string, Enemy> _dungeonEnemies;
 
     public override void Setup()
     {
-        base.Setup();
+        _dungeonEnemies = new Dictionary<string , Enemy>();
+
+        string[] fileNames = Directory.GetFiles( _enemyFilePath );
+
+        foreach(string fileName in fileNames )
+        {
+            string json = File.ReadAllText( fileName );
+            Enemy enemy = JsonUtility.FromJson<Enemy>( json );
+            _dungeonEnemies.Add( enemy.Name , CreateEnemy( enemy.EnemyType , json ));
+        }
     }
 
     public override void Teardown()
     {
         base.Teardown();
+    }
+
+    public Enemy CreateEnemy(EnemyType enemyType, string json)
+    {
+        switch( enemyType )
+        {
+            case EnemyType.IMP:
+                return JsonUtility.FromJson<Imp>( json );
+        }
+
+        return null;
     }
 
     public void DealDamage(int amount )

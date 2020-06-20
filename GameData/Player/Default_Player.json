@@ -1,0 +1,118 @@
+{
+  "Health": 10,
+  "HealthMax": 10,
+  "Mana": 0,
+  "ManaMax": 5,
+  "CurrentSkull": 0,
+  "SkullCap": 3,
+  "OverloadMultiplier": 2.0,
+  "OverloadLimit": 5,
+  "Experience": 0,
+  "Level": 1,
+  "DamageModifier": 0,
+  "DefenseModifier": 0,
+  "AccessorySlots": 2,
+  "Spells": [
+    "Fireball",
+    "Ice Block",
+    "Bolt"
+    ],
+  "Title": "Apprentice",
+  "LevelUpChart":[
+    {
+    "ExperienceThreshold": 10,
+    "Level": 2,
+    "Title": "Apprentice"
+    },
+    {
+    "ExperienceThreshold": 25,
+    "Level": 3,
+    "Title": "Apprentice"
+    },
+    {
+    "ExperienceThreshold": 50,
+    "Level": 4,
+    "Title": "Apprentice"
+    },
+    {
+    "ExperienceThreshold": 75,
+    "Level": 5,
+    "Title": "Apprentice"
+    },
+    {
+    "ExperienceThreshold": 100,
+    "Level": 6,
+    "Title": "Mage"
+    },
+    {
+    "ExperienceThreshold": 150,
+    "Level": 7,
+    "Title": "Mage"
+    },
+    {
+    "ExperienceThreshold": 200,
+    "Level": 8,
+    "Title": "Mage"
+    },
+    {
+    "ExperienceThreshold": 250,
+    "Level": 9,
+    "Title": "Mage"
+    },
+    {
+    "ExperienceThreshold": 300,
+    "Level": 10,
+    "Title": "Sorcerer"
+    },
+    {
+    "ExperienceThreshold": 450,
+    "Level": 11,
+    "Title": "Sorcerer"
+    },
+    {
+    "ExperienceThreshold": 600,
+    "Level": 12,
+    "Title": "Sorcerer"
+    },
+    {
+    "ExperienceThreshold": 750,
+    "Level": 13,
+    "Title": "Acolyte"
+    },
+    {
+    "ExperienceThreshold": 1000,
+    "Level": 14,
+    "Title": "Acolyte"
+    },
+    {
+    "ExperienceThreshold": 1250,
+    "Level": 15,
+    "Title": "Acolyte"
+    },
+    {
+    "ExperienceThreshold": 1500,
+    "Level": 16,
+    "Title": "Sage"
+    },
+    {
+    "ExperienceThreshold": 2000,
+    "Level": 17,
+    "Title": "Sage"
+    },
+    {
+    "ExperienceThreshold": 2500,
+    "Level": 18,
+    "Title": "Godlike"
+    },
+    {
+    "ExperienceThreshold": 3500,
+    "Level": 19,
+    "Title": "Destroyer of Worlds"
+    },
+    {
+    "ExperienceThreshold": 5000,
+    "Level": 20,
+    "Title": "Nirvana"
+    }
+    ]
+}

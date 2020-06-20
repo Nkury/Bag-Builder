@@ -18,19 +18,13 @@ public class Requirement
 }
 
 [Serializable]
-public class OrbRequirements
-{
-    public List<Requirement> orbRequirements;
-}
-
-[Serializable]
 public class Spell
 {
-    private int _manaCost;
-    private string _name;
-    private SpellType _type;
+    public int ManaCost;
+    public string Name;
+    public SpellType Type;
 
-    private OrbRequirements _orbRequirements;
+    public List<Requirement> OrbRequirements;
 
     public virtual void Setup()
     {
@@ -44,11 +38,6 @@ public class Spell
 
     public virtual bool MeetsRequirements()
     {
-        return Context.context.BagManager.MeetsRequirements( _orbRequirements );
-    }
-
-    public SpellType GetSpellType()
-    {
-        return _type;
+        return Context.context.BagManager.MeetsRequirements( OrbRequirements );
     }
 }

@@ -1,0 +1,12 @@
+{
+  "ManaCost": 1,
+  "Name": "Fireball",
+  "Type": 0,
+  "OrbRequirements":[
+    {
+      "orbType": 0,
+      "quantity": 1
+    }
+    ],
+  "Damage": 3
+}

@@ -1,0 +1,13 @@
+{
+  "EnemyType" : 0,
+  "Health" : 5,
+  "Name" : "Imp",
+  "BagName" : "Imp_Bag",
+  "SpellNames" : [
+	"Mass Fear",
+	"Jab",
+	"Slumber"
+  ],
+  "BaseXP" : 3,
+  "BaseGold" : 10
+}

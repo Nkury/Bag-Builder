@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBasicSpell : Spell
+public class IceBasicSpell : Spell
 {
-    public int Damage;
+    public int ShieldPower;
 
     public override void Effect()
     {
-        Context.context.EnemyManager.DealDamage( Damage );
+        // TODO
     }
 }

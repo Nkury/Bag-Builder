@@ -1,71 +1,65 @@
 {
-   "BagName" : "Player",
+   "BagName" : "Imp_Bag",
    "Orbs":[
       {
          "power":1,
          "mana":1,
-         "weight":21,
-         "type":0
+         "weight":20,
+         "type":4
       },
       {
          "power":1,
          "mana":1,
          "weight":20,
-         "type":1
+         "type":4
       },
       {
          "power":1,
          "mana":1,
          "weight":20,
-         "type":1
+         "type":4
       },
       {
          "power":1,
          "mana":1,
-         "weight":19,
-         "type":2
+         "weight":20,
+         "type":4
       },
       {
          "power":1,
          "mana":1,
-         "weight":19,
-         "type":2
+         "weight":20,
+         "type":4
       },
       {
          "power":1,
          "mana":1,
-         "weight":19,
-         "type":2
+         "weight":30,
+         "type":5
       },
       {
          "power":1,
          "mana":1,
-         "weight":15,
-         "type":3
+         "weight":30,
+         "type":5
       },
       {
          "power":1,
          "mana":1,
-         "weight":15,
-         "type":3
+         "weight":30,
+         "type":5
       },
       {
          "power":1,
          "mana":1,
-         "weight":15,
-         "type":3
+         "weight":30,
+         "type":5
       },
       {
-         "power":2,
+         "power":1,
          "mana":1,
-         "weight":10,
-         "type":3
-      },
-      {
-         "power":2,
-         "mana":1,
-         "weight":10,
-         "type":3
+         "weight":30,
+         "type":5
       }
    ]
 }

@@ -1,22 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
+using System.IO;
 
 public class PlayerManager : Manager
 {
-    private int _health;
-    private int _healthMax;
-    private int _mana;
-    private int _manaMax;
+    private static readonly string _defaultFilePath = "GameData/Player/Default_Player.json";
+    private static readonly string _activePlayerFilePath = Application.persistentDataPath + "Player/ActivePlayer.json"; // TODO
 
-    public PlayerManager ( )
+    private Player _player;
+
+    private string _filePath;
+
+    public override void Setup()
     {
+        base.Setup();
 
+        _filePath = _defaultFilePath;
+        LoadPlayer();
     }
 
-    public override void Setup ( )
+    public override void Teardown()
     {
-        base.Setup ( );
+        base.Teardown();
+        //SavePlayer();
+    }
+
+    public void LoadPlayer()
+    {
+        string json = File.ReadAllText( _filePath );
+        _player = JsonUtility.FromJson<Player>( json );
+        Context.context.SpellManager.LoadPlayerSpells( _player.Spells );
+    }
+
+    public void SavePlayer()
+    {
+
     }
 }

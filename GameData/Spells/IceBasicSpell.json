@@ -1,0 +1,12 @@
+{
+  "ManaCost": 1,
+  "Name": "Ice Block",
+  "Type": 1,
+  "OrbRequirements":[
+    {
+      "orbType": 1,
+      "quantity": 1
+    }
+    ],
+  "ShieldPower": 1
+}

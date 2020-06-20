@@ -1,13 +1,31 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Player : MonoBehaviour
+[Serializable]
+public class LevelUp
 {
-    PlayerManager playerManager;
+    public int ExperienceThreshold;
+    public int Level;
+    public string Title;
+}
 
-    public void Setup ( Context context )
-    {
-        playerManager = context.PlayerManager;
-    }
+[Serializable]
+public class Player
+{
+    public int Health;
+    public int HealthMax;
+    public int Mana;
+    public int ManaMax;
+    public int CurrentSkull;
+    public int SkullCap;
+    public float OverloadMultiplier;
+    public float OverloadLimit;
+    public int Experience;
+    public int Level;
+    public int DamageModifier;
+    public int DefenseModifier;
+    public int AccessorySlots;
+    public List<string> Spells = new List<string>(); // names of the spells the player has
+    public string Title;
+    public List<LevelUp> LevelUpChart = new List<LevelUp>();
 }

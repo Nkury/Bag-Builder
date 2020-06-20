@@ -24,7 +24,7 @@ public class Bootstrap : MonoBehaviour
         SpellManager spellManager = new SpellManager();
         BagManager bagManager = new BagManager();
         EnemyManager enemyManager = new EnemyManager();
-        context.AddManagers( playerManager , spellManager , bagManager , enemyManager );
+        context.AddManagers( spellManager, bagManager, playerManager, enemyManager ); // order matters
         context.SetupManagers();
     }
 

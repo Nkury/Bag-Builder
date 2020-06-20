@@ -1,0 +1,12 @@
+{
+  "ManaCost": 1,
+  "Name": "Bolt",
+  "Type": 2,
+  "OrbRequirements":[
+    {
+      "orbType": 2,
+      "quantity": 1
+    }
+    ],
+  "Damage": 1
+}

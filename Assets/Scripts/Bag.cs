@@ -12,6 +12,8 @@ public struct WeightedEntry
 [Serializable]
 public class Bag
 {
+    public string BagName;
+
     public List<Orb> Orbs = new List<Orb>();
 
     [NonSerialized]
@@ -31,6 +33,10 @@ public class Bag
 
     public void SetupWeightTable()
     {
+        int numOfOrbTypes = Enum.GetValues( typeof( OrbType ) ).Length;
+        QuantityTable = new List<int>( new int[ numOfOrbTypes ] );
+        DrawnQuantityTable = new List<int>( new int[ numOfOrbTypes ] );
+
         int orbCount = Orbs.Count;
         for( int i = 0; i < orbCount; i++ )
         {
@@ -43,11 +49,7 @@ public class Bag
 
             // populate the quantity table
             QuantityTable[ ( int ) Orbs[ i ].type ]++;
-        }
-
-        int numOfOrbTypes = Enum.GetValues( typeof( OrbType ) ).Length;
-        QuantityTable = new List<int>( numOfOrbTypes );
-        DrawnQuantityTable = new List<int>( numOfOrbTypes );
+        }       
     }
 
     public void AddOrb( Orb orb )
