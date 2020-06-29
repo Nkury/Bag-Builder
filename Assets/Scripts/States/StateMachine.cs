@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleView : MonoBehaviour
+public class StateMachine
 {
-
+    private Stack<State> _stateMachine;
 }

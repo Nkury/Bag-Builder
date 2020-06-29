@@ -39,6 +39,7 @@ public class BagManager : Manager
     {
         string json = File.ReadAllText( fileName );
         Bag bag = JsonUtility.FromJson<Bag>( json );
+        bag.SetupWeightTable();
         _enemyBags.Add( bag.BagName, bag );
     }
 
