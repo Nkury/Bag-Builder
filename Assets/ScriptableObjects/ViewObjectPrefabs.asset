@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewPrefabs:
   - name: CombatEncounterView
-    prefab: {fileID: 0}
+    prefab: {fileID: 7849146031752511559, guid: 5b4b61f0238c04c4cbfe0305041772d1,
+      type: 3}

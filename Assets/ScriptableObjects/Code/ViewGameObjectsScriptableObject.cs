@@ -16,7 +16,7 @@ public class ViewGameObjectsScriptableObject : ScriptableObject
 
     private Dictionary<string , GameObject> _viewPrefabDictionary;
 
-    public void Awake()
+    public void OnEnable()
     {
         _viewPrefabDictionary = new Dictionary<string , GameObject>();
         for( int i = 0; i < ViewPrefabs.Length; i++ )
