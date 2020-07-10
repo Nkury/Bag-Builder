@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class State
 {
-    protected virtual void Enter()
+    protected IContext _context;
+
+    public virtual void Setup( IContext context )
+    {
+        _context = context;
+    }
+
+    public virtual void Enter()
     {
 
     }
 
-    protected virtual void Exit()
+    public virtual void Exit()
     {
 
     }
