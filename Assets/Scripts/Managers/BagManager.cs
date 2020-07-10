@@ -16,9 +16,9 @@ public class BagManager : Manager
 
     private string _filePath;
 
-    public override void Setup()
+    public override void Setup( IContext context )
     {
-        base.Setup ( );
+        base.Setup ( context );
         _enemyBags = new Dictionary<string , Bag>();
 
         _filePath = ( File.Exists( CURRENT_RUN_BAG_NAME ) ) ? CURRENT_RUN_BAG_NAME : DEFAULT_BAG_NAME;

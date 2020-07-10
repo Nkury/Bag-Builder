@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Manager : IManager
 {
-    public virtual void Setup( )
+    protected IContext context;
+
+    public virtual void Setup( IContext context )
     {
+        this.context = context;
     }
 
     public virtual void Teardown ( )

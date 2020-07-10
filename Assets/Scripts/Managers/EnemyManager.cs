@@ -5,7 +5,7 @@ using System.IO;
 
 public class EnemyManager : Manager
 {
-    private static readonly string _enemyFilePath = "GameData/Enemies/";
+    private static readonly string ENEMY_FILE_PATH = "GameData/Enemies/";
 
     public static System.Action<int> EnemyDealtDamage;
 
@@ -13,11 +13,12 @@ public class EnemyManager : Manager
 
     private Dictionary<string, Enemy> _dungeonEnemies;
 
-    public override void Setup()
+    public override void Setup( IContext context ) 
     {
+        base.Setup( context );
         _dungeonEnemies = new Dictionary<string , Enemy>();
 
-        string[] fileNames = Directory.GetFiles( _enemyFilePath );
+        string[] fileNames = Directory.GetFiles( ENEMY_FILE_PATH );
 
         foreach(string fileName in fileNames )
         {

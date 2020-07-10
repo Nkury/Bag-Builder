@@ -2,27 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Linq;
 
 public class SpellManager : Manager
 {
-    private static readonly string _filePath = "GameData/Spells";
-    Dictionary<string , Spell> allSpells;
-    Dictionary<string , Spell> playerSpells;
-    Dictionary<string , Spell> enemySpells;
+    private static readonly string FILE_PATH = "GameData/Spells";
+    private Dictionary<string , Spell> allSpells;
+    private Dictionary<string , Spell> playerSpells;
+    private Dictionary<string , Spell> enemySpells;
 
-    public override void Setup ( )
+    public override void Setup ( IContext context )
     {
+        base.Setup( context );
         allSpells = new Dictionary<string , Spell>();
         playerSpells = new Dictionary<string , Spell>();
         enemySpells = new Dictionary<string , Spell>();
 
-        string[] files = Directory.GetFiles( _filePath );
+        string[] files = Directory.GetFiles( FILE_PATH );
 
         for(int i = 0; i < files.Length; i++ )
         {
             string json = File.ReadAllText( files[ i ] );
             Spell spell = JsonUtility.FromJson<Spell>( json );
-            allSpells.Add( spell.Name , CreateSpell( spell.Type , json ) );
+            spell = CreateSpell( spell.Type , json );
+            spell.Setup( context );
+            allSpells.Add( spell.Name , spell );
         }
     }
 
@@ -47,7 +51,7 @@ public class SpellManager : Manager
         for(int spellIndex = 0; spellIndex < spellCount; spellIndex++ )
         {
             string spellName = spells[ spellIndex ];
-            playerSpells[ spellName ] = allSpells[ spellName ];
+            playerSpells.Add( spellName, allSpells[ spellName ] );
         }
     }
 
@@ -59,5 +63,10 @@ public class SpellManager : Manager
             string spellName = spells[ spellIndex ];
             enemySpells[ spellName ] = allSpells[ spellName ];
         }
+    }
+
+    public List<Spell> GetPlayerSpells()
+    {
+        return playerSpells.Values.ToList();
     }
 }

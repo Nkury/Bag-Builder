@@ -11,9 +11,9 @@ public class PlayerManager : Manager
 
     private string _filePath;
 
-    public override void Setup()
+    public override void Setup( IContext context )
     {
-        base.Setup();
+        base.Setup( context );
 
         _filePath = _defaultFilePath;
         LoadPlayer();
@@ -29,7 +29,7 @@ public class PlayerManager : Manager
     {
         string json = File.ReadAllText( _filePath );
         _player = JsonUtility.FromJson<Player>( json );
-        Context.context.SpellManager.LoadPlayerSpells( _player.Spells );
+        context.SpellManager.LoadPlayerSpells( _player.Spells );
     }
 
     public void SavePlayer()

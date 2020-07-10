@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IManager
 {
-    void Setup ();
+    void Setup ( IContext context );
     void Teardown (); 
 }
