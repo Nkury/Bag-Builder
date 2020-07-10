@@ -5,16 +5,25 @@ using UnityEngine;
 public class CombatState : State
 {
 
+    private static readonly string PREFAB_NAME = "CombatEncounterView";
+
     private CombatEncounterView _combatEncounterView;
 
-    protected override void Enter()
+    public override void Setup( IContext context )
     {
-        
+        base.Setup( context );
+    }
+
+    public override void Enter()
+    {
+        CreateCombatView();
     }
 
     private void CreateCombatView()
     {
-
+        GameObject view = _context.UIManager.InstantiateViewOnDefaultCanvas( PREFAB_NAME );
+        _combatEncounterView = view.GetComponent<CombatEncounterView>();
+        _combatEncounterView.Setup( _context.SpellManager.GetPlayerSpells() );
     }
 }
 
