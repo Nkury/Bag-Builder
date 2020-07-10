@@ -10,4 +10,9 @@ public class IceBasicSpell : Spell
     {
         // TODO
     }
+
+    public override string GetLocalizedDescription()
+    {
+        return context.LocalizationManager.GetLocalizedString( Description , ShieldPower.ToString() );
+    }
 }

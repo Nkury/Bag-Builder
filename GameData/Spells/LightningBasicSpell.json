@@ -1,6 +1,6 @@
 {
   "ManaCost": 1,
-  "Name": "Bolt",
+  "Name": "basic_lightning_spell_name",
   "Type": 2,
   "OrbRequirements":[
     {
@@ -8,5 +8,7 @@
       "quantity": 1
     }
     ],
-  "Damage": 1
+  "Damage": 1,
+  "Description": "basic_lightning_spell_description",
+  "IsBasic": true
 }

@@ -1,6 +1,6 @@
 {
   "ManaCost": 1,
-  "Name": "Ice Block",
+  "Name": "basic_ice_spell_name",
   "Type": 1,
   "OrbRequirements":[
     {
@@ -8,5 +8,7 @@
       "quantity": 1
     }
     ],
-  "ShieldPower": 1
+  "ShieldPower": 1,
+  "Description" : "basic_ice_spell_description",
+  "IsBasic": true
 }

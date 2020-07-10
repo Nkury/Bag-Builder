@@ -13,9 +13,9 @@
   "DefenseModifier": 0,
   "AccessorySlots": 2,
   "Spells": [
-    "Fireball",
-    "Ice Block",
-    "Bolt"
+    "basic_fire_spell_name",
+    "basic_ice_spell_name",
+    "basic_lightning_spell_name"
     ],
   "Title": "Apprentice",
   "LevelUpChart":[

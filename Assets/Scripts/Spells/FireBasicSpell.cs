@@ -8,6 +8,11 @@ public class FireBasicSpell : Spell
 
     public override void Effect()
     {
-        Context.context.EnemyManager.DealDamage( Damage );
+        context.EnemyManager.DealDamage( Damage );
+    }
+
+    public override string GetLocalizedDescription()
+    {
+        return context.LocalizationManager.GetLocalizedString( Description , Damage.ToString() );
     }
 }

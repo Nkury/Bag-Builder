@@ -1,6 +1,6 @@
 {
   "ManaCost": 1,
-  "Name": "Fireball",
+  "Name": "basic_fire_spell_name",
   "Type": 0,
   "OrbRequirements":[
     {
@@ -8,5 +8,7 @@
       "quantity": 1
     }
     ],
-  "Damage": 3
+  "Damage": 3,
+  "Description": "basic_fire_spell_description",
+  "IsBasic": true
 }
