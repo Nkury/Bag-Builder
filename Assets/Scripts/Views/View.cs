@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class View : MonoBehaviour
 {
-    private State _viewState;
+    protected State _viewState;
+    protected IContext _context; 
 
     // Start is called before the first frame update
-    public virtual void InstantiateView( State state )
+    public virtual void InstantiateView( State state, Context context )
     {
         _viewState = state;
+        _context = context;
     }
 }
