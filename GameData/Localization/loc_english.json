@@ -1,0 +1,12 @@
+{
+"Strings" :
+[
+{"Key": "mana_resource_name", "Value": "mana"},
+{"Key" : "basic_fire_spell_description", "Value" : "Deal {0} damage to an enemy"},
+{"Key" : "basic_fire_spell_name", "Value" : "Fireball"},
+{"Key" : "basic_ice_spell_description", "Value" : "Shield yourself from {0} damage"},
+{"Key" : "basic_ice_spell_name", "Value" : "Ice Block"},
+{"Key" : "basic_lightning_spell_description", "Value" : "Deal {0} damage to an enemy"},
+{"Key" : "basic_lightning_spell_name", "Value" : "Bolt"}
+]
+}
