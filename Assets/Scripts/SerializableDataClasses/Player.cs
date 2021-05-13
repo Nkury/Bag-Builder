@@ -28,4 +28,29 @@ public class Player
     public List<string> Spells = new List<string>(); // names of the spells the player has
     public string Title;
     public List<LevelUp> LevelUpChart = new List<LevelUp>();
+
+    private IContext _context;
+
+    public void Setup( IContext context )
+    {
+        _context = context;
+    }
+
+    // Returns true if skull limit has been reached.
+    public bool ProcessOrb( Orb orb )
+    {
+        if(orb.type == OrbType.SKULL )
+        {
+            CurrentSkull += orb.power;
+        }
+
+        if( CurrentSkull >= SkullCap )
+        {
+            CurrentSkull = 0;
+            _context.BagManager.ResetPlayerBag();
+            return true;
+        }
+
+        return false;
+    }
 }

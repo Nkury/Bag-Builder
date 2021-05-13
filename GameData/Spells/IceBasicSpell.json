@@ -4,7 +4,7 @@
   "Type": 1,
   "OrbRequirements":[
     {
-      "orbType": 1,
+      "orbType": 2,
       "quantity": 1
     }
     ],

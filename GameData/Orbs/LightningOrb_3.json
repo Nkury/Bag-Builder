@@ -1,0 +1,8 @@
+ {
+	"orb_name":"lightning_orb_name_3",
+	"asset_name":"ui_lightning_orb_3",
+    "power":3,
+    "mana":1,
+    "weight":19,
+    "type":3
+}

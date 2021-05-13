@@ -1,13 +1,20 @@
 {
   "EnemyType" : 0,
+  "MaxHealth" : 5,
   "Health" : 5,
-  "Name" : "Imp",
+  "DefaultDrawSpeed" : 5,
+  "Name" : "imp_enemy_name",
   "BagName" : "Imp_Bag",
   "SpellNames" : [
-	"Mass Fear",
-	"Jab",
-	"Slumber"
+	"mass_fear_spell_name",
+	"jab_spell_name",
+	"slumber_spell_name"
   ],
   "BaseXP" : 3,
-  "BaseGold" : 10
-}
+  "BaseGold" : 10,
+  "ChanceForMassFear" : 0.4,
+  "DeltaToGetLessMassFears" : 0.2,
+  "DeltaToGetMoreMassFears" : 0.05,
+  "MinDrawSpeed" : 3,
+  "MaxDrawSpeed" : 7
+  }

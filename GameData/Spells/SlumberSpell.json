@@ -1,0 +1,15 @@
+{
+  "ManaCost": 2,
+  "Name": "slumber_spell_name",
+  "Type": 5,
+  "OrbRequirements":[
+    {
+      "orbType": 6,
+      "quantity": 3
+    }
+    ],
+  "HealPower" : 5,
+  "DrawPower" : 2,
+  "Description": "slumber_spell_description",
+  "IsBasic": false
+}

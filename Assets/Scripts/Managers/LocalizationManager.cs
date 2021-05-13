@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 
 [Serializable]
 public class LocStrings
@@ -25,7 +26,7 @@ public class LocalizationManager : Manager
     private static readonly string FILE_NAME_SUFFIX = "english"; // TODO: add functionality for multiple languages
 
     private Dictionary<string , string> _stringDictionary;
-    public override void Setup( IContext context )
+    public override async Task Setup( IContext context )
     {
         base.Setup( context );
         _stringDictionary = new Dictionary<string , string>();

@@ -1,0 +1,14 @@
+{
+  "ManaCost": 1,
+  "Name": "jab_spell_name",
+  "Type": 3,
+  "OrbRequirements":[
+    {
+      "orbType": 5,
+      "quantity": 1
+    }
+    ],
+  "Damage": 1,
+  "Description": "jab_spell_description",
+  "IsBasic": false
+}

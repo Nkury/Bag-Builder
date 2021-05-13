@@ -9,6 +9,17 @@ public class State
     public virtual void Setup( IContext context )
     {
         _context = context;
+        RegisterEvents();
+    }
+    
+    public virtual void RegisterEvents()
+    {
+
+    }
+
+    public virtual void DeregisterEvents()
+    {
+
     }
 
     public virtual void Enter()

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Linq;
 
 public class OrbDraggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
-{
-    [SerializeField]
-    private Canvas _canvas;
+{ 
 
     [SerializeField]
     private RectTransform _rectTransform;
@@ -23,21 +24,18 @@ public class OrbDraggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     private CanvasGroup _canvasGroup;
 
     [SerializeField]
+    private Image _orbImage;
+
+    [SerializeField]
     private float _alphaFadeValue;
+    private Canvas _canvas;
 
-    private OrbType _orbType;
-
-    public OrbType OrbType
-    {
-        get
-        {
-            return _orbType;
-        }
-    }
+    public OrbType OrbType { get; private set; } = OrbType.NONE;
+    public string OrbName { get; private set; }
 
     private Vector2 _originalAnchoredPosition;
 
-    private Context _context;
+    private IContext _context;
 
     private OrbSlot _inOrbSlot; // for determining if orb is in a spell slot
     
@@ -47,10 +45,11 @@ public class OrbDraggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         //_canvas = _context.UIManager.GetActiveCanvas();
     }
 
-    public void Setup( Context context, OrbType orbType )
+    public void Setup( IContext context )
     {
+        _orbImage.gameObject.SetActive( false ); // set image to false until we load the sprite
         _context = context;
-        _orbType = orbType;
+        _canvas = context.UIManager.GetActiveCanvas();
     }
 
     public void OnBeginDrag( PointerEventData eventData )
@@ -99,5 +98,31 @@ public class OrbDraggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     public void SetOrbSlot(OrbSlot orbSlot)
     {
         _inOrbSlot = orbSlot;
+    }
+
+    private void LoadOrbImage( Orb orb )
+    {
+        _context.AssetManager.LoadSpriteAsset( orb.asset_name, sprite =>
+        {
+            if( sprite != null )
+            {
+                _orbImage.gameObject.SetActive( true );
+                _orbImage.sprite = sprite;
+            }
+        } );        
+    }
+
+    public void SetOrb( Orb orb )
+    {
+        LoadOrbImage( orb );
+        OrbType = orb.type;
+        OrbName = orb.asset_name;
+    }
+
+    public void ClearOrbDraggable()
+    {
+        _orbImage.gameObject.SetActive( false );
+        OrbType = OrbType.NONE;
+        OrbName = string.Empty;
     }
 }

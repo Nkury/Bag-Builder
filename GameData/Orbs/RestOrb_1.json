@@ -1,0 +1,8 @@
+{
+	 "orb_name":"rest_orb_name",
+	 "asset_name":"ui_rest_orb",
+	 "power":1,
+	 "mana":1,
+	 "weight":30,
+	 "type":6
+}

@@ -1,0 +1,15 @@
+{
+  "ManaCost": 2,
+  "Name": "mass_fear_spell_name",
+  "Type": 4,
+  "OrbRequirements":[
+    {
+      "orbType": 5,
+      "quantity": 3
+    }
+    ],
+  "Damage": 3,
+  "StunDuration": 1,
+  "Description": "mass_fear_spell_description",
+  "IsBasic": false
+}

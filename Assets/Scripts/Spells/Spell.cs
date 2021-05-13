@@ -5,9 +5,12 @@ using System;
 
 public enum SpellType
 {
-    FIREBASICSPELL,
-    ICEBASICSPELL,
-    LIGHTNINGBASICSPELL
+    FIRE_BASIC_SPELL,
+    ICE_BASIC_SPELL,
+    LIGHTNING_BASIC_SPELL,
+    JAB_SPELL,
+    MASS_FEAR_SPELL,
+    SLUMBER_SPELL
 }
 
 [Serializable]
@@ -28,7 +31,8 @@ public class Spell
 
     public List<Requirement> OrbRequirements;
 
-    protected IContext context; 
+    protected IContext context;
+    protected bool isEnemy;
 
     public virtual void Setup( IContext context )
     {
@@ -40,9 +44,10 @@ public class Spell
 
     }
 
+    // any additional requirements needed to satisfy casting a spell
     public virtual bool MeetsRequirements()
     {
-        return context.BagManager.MeetsRequirements( OrbRequirements );
+        return true;
     }
 
     public virtual string GetLocalizedDescription()
@@ -58,5 +63,15 @@ public class Spell
     public virtual string GetLocalizedManaCost()
     {
         return string.Format(string.Format("{0} {1}", ManaCost.ToString(), context.LocalizationManager.GetLocalizedString( LocKey.MANA_RESOURCE_NAME )));
+    }
+
+    public virtual void SetEnemySpell()
+    {
+        isEnemy = true;
+    }
+
+    public virtual void SetPlayerSpell()
+    {
+        isEnemy = false;
     }
 }

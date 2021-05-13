@@ -8,7 +8,14 @@ public class FireBasicSpell : Spell
 
     public override void Effect()
     {
-        context.EnemyManager.DealDamage( Damage );
+        if( isEnemy )
+        {
+            context.PlayerManager.DealDamage( Damage );
+        }
+        else
+        {
+            context.EnemyManager.DealDamage( Damage );
+        }        
     }
 
     public override string GetLocalizedDescription()

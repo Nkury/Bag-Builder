@@ -1,21 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using System;
+
 
 public class UIManager : Manager
 {
     private readonly string CANVAS_NAME = "DefaultCanvas";
 
     private Canvas _canvas;
-
-    private ViewGameObjectsScriptableObject _viewPrefabs;
-
-    public UIManager( ViewGameObjectsScriptableObject viewPrefabs )
-    {
-        _viewPrefabs = viewPrefabs;
-    }
-
-    public override void Setup( IContext context )
+    
+    public override async Task Setup( IContext context )
     {
         base.Setup( context );
         _canvas = GameObject.Find( CANVAS_NAME ).GetComponent<Canvas>();
@@ -26,18 +22,18 @@ public class UIManager : Manager
         return _canvas;
     }
 
-    public GameObject InstantiateViewOnDefaultCanvas( string viewName )
+    public void InstantiateViewOnDefaultCanvas( string assetName, Action<GameObject> callback )
     {
-        GameObject view = _viewPrefabs.GetPrefabFromName( viewName );
-
-        if( view == null )
+        context.AssetManager.LoadPrefabAsset( assetName, gameObj =>
         {
-            Debug.LogError( string.Format( "{0} not found in view prefabs scriptable object" , viewName ) );
-            return null;
+            if(gameObj == null )
+            {
+                Debug.LogError( string.Format( "{0} not found in Addressables" , assetName ) );                
+            }
+
+            GameObject returnObj = GameObject.Instantiate( gameObj , _canvas.transform );
+            callback( returnObj );
         }
-
-        GameObject obj = GameObject.Instantiate<GameObject>( view , _canvas.transform );
-
-        return obj;
+        );       
     }
 }

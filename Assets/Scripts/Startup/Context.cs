@@ -2,9 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 
 public class Context : IContext
 {
+    #region DELEGATES
+    public delegate void OnSetupComplete();
+    #endregion
+
+    #region EVENTS
+    public static event OnSetupComplete SetupCompleteEvent;
+    #endregion
+
+    public OrbManager OrbManager { get; set; }
     public BagManager BagManager { get; set; }
     public PlayerManager PlayerManager { get; set; }
     public SpellManager SpellManager { get; set; }
@@ -12,6 +22,7 @@ public class Context : IContext
     public UIManager UIManager { get; set; }
     public StateMachine StateMachine { get; set; }
     public LocalizationManager LocalizationManager { get; set; }
+    public AssetManager AssetManager { get; set; }
     private List<IManager> _managerList;
 
     public Context ( )
@@ -30,14 +41,16 @@ public class Context : IContext
         }
     }
 
-    public void SetupManagers ( )
+    public async void SetupManagers ( )
     {
         int numOfManagers = _managerList.Count;
 
         for( int i = 0; i < numOfManagers; i++ )
         {
-            _managerList [ i ].Setup( this );
+            await _managerList [ i ].Setup( this );
         }
+
+        SetupCompleteEvent?.Invoke();
     }
 
     public void TeardownManagers()
@@ -52,7 +65,12 @@ public class Context : IContext
 
     private IManager AssignManager( IManager manager )
     {
-        if( manager is BagManager )
+        if ( manager is OrbManager )
+        {
+            OrbManager = ( OrbManager ) manager;
+            return OrbManager;
+        }
+        else if( manager is BagManager )
         {
             BagManager = ( BagManager ) manager;
             return BagManager;
@@ -86,6 +104,10 @@ public class Context : IContext
         {
             LocalizationManager = ( LocalizationManager ) manager;
             return LocalizationManager;
+        } else if( manager is AssetManager )
+        {
+            AssetManager = ( AssetManager ) manager;
+            return AssetManager;
         }
 
         return null;

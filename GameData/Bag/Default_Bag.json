@@ -1,71 +1,17 @@
 {
    "BagName" : "Player",
-   "Orbs":[
+   "OrbBagInfo":[
       {
-         "power":1,
-         "mana":1,
-         "weight":21,
-         "type":0
+		 "orb_name":"fire_orb_name",
+		 "quantity":2
       },
       {
-         "power":1,
-         "mana":1,
-         "weight":20,
-         "type":1
+	     "orb_name":"ice_orb_name",
+		 "quantity":3
       },
       {
-         "power":1,
-         "mana":1,
-         "weight":20,
-         "type":1
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":19,
-         "type":2
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":19,
-         "type":2
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":19,
-         "type":2
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":15,
-         "type":3
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":15,
-         "type":3
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":15,
-         "type":3
-      },
-      {
-         "power":2,
-         "mana":1,
-         "weight":10,
-         "type":3
-      },
-      {
-         "power":2,
-         "mana":1,
-         "weight":10,
-         "type":3
+		 "orb_name":"lightning_orb_name",
+		 "quantity":5
       }
    ]
 }

@@ -5,10 +5,7 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     private Context context;
-
-    [SerializeField]
-    private ViewGameObjectsScriptableObject _viewPrefabs;
-
+    
     private void Awake( )
     {
         DontDestroyOnLoad ( this );
@@ -17,8 +14,8 @@ public class Bootstrap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Context.SetupCompleteEvent += OnSetupComplete;
         CreateContext();
-        context.StateMachine.PushState( new CombatState() );
     }
 
     private void CreateContext( )
@@ -26,13 +23,23 @@ public class Bootstrap : MonoBehaviour
         context = new Context();
         PlayerManager playerManager = new PlayerManager();
         SpellManager spellManager = new SpellManager();
+        OrbManager orbManager = new OrbManager();
         BagManager bagManager = new BagManager();
         EnemyManager enemyManager = new EnemyManager();
-        UIManager uiManager = new UIManager( _viewPrefabs );
+        UIManager uiManager = new UIManager();
+        AssetManager assetManager = new AssetManager();
         StateMachine stateMachine = new StateMachine();
         LocalizationManager localizationManager = new LocalizationManager();
-        context.AddManagers( spellManager, bagManager, playerManager, enemyManager, uiManager, stateMachine, localizationManager ); // order matters
+        context.AddManagers( assetManager, spellManager, orbManager, bagManager, playerManager, enemyManager, uiManager, stateMachine, localizationManager ); // order matters
         context.SetupManagers();
+    }
+
+    private void OnSetupComplete()
+    {
+        Debug.Log( "Manager setup complete" );
+        Context.SetupCompleteEvent -= OnSetupComplete;
+        
+        context.StateMachine.PushState( new CombatState() );
     }
 
     public void OnApplicationQuit ( )

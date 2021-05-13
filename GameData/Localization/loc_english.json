@@ -7,6 +7,20 @@
 {"Key" : "basic_ice_spell_description", "Value" : "Shield yourself from {0} damage"},
 {"Key" : "basic_ice_spell_name", "Value" : "Ice Block"},
 {"Key" : "basic_lightning_spell_description", "Value" : "Deal {0} damage to an enemy"},
-{"Key" : "basic_lightning_spell_name", "Value" : "Bolt"}
+{"Key" : "basic_lightning_spell_name", "Value" : "Bolt"},
+{"Key" : "lightning_orb_name", "Value" : "Lightning Orb"},
+{"Key" : "skull_orb_name", "Value" : "Skull Orb"},
+{"Key" : "skull_orb_description", "Value" : "Deal damage equal to your total mana {0}"},
+{"Key" : "fire_orb_name", "Value": "Fire Orb"},
+{"Key" : "ice_orb_name", "Value" : "Ice Orb"},
+{"Key" : "fear_orb_name", "Value" : "Fear Orb"},
+{"Key" : "rest_orb_name", "Value" : "Rest Orb"},
+{"Key" : "imp_enemy_name", "Value" : "Imp" },
+{"Key" : "jab_spell_name", "Value" : "Jab"},
+{"Key" : "jab_spell_description", "Value" : "Deal {0} damage"},
+{"Key" : "mass_fear_spell_name", "Value" : "Mass Fear"},
+{"Key" : "mass_fear_spell_description", "Value" : "Deal {0} damage and STUN for {1} turn"},
+{"Key" : "slumber_spell_name", "Value" : "Slumber"},
+{"Key" : "slumber_spell_description", "Value" : "Gain {0} health and draw {1} additional orbs"}
 ]
 }

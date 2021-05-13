@@ -1,0 +1,8 @@
+{
+	 "orb_name":"fear_orb_name",
+	 "asset_name":"ui_fear_orb",
+	 "power":1,
+	 "mana":1,
+	 "weight":20,
+	 "type":5
+}

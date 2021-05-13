@@ -1,65 +1,13 @@
 {
    "BagName" : "Imp_Bag",
-   "Orbs":[
+   "OrbBagInfo":[
       {
-         "power":1,
-         "mana":1,
-         "weight":20,
-         "type":4
+		 "orb_name":"fear_orb_name",
+		 "quantity":6
       },
       {
-         "power":1,
-         "mana":1,
-         "weight":20,
-         "type":4
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":20,
-         "type":4
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":20,
-         "type":4
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":20,
-         "type":4
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":30,
-         "type":5
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":30,
-         "type":5
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":30,
-         "type":5
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":30,
-         "type":5
-      },
-      {
-         "power":1,
-         "mana":1,
-         "weight":30,
-         "type":5
+	     "orb_name":"rest_orb_name",
+		 "quantity":4
       }
    ]
 }

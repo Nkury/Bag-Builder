@@ -5,7 +5,6 @@ using TMPro;
 
 public class SpellView : View
 {
-
     private static readonly int MAX_ORB_SLOTS = 5;
 
     [SerializeField]
@@ -27,9 +26,9 @@ public class SpellView : View
 
     private Spell _spell;
 
-    public override void InstantiateView( State state , Context context )
+    public override void InstantiateView( IContext context )
     {
-        base.InstantiateView( state , context );
+        base.InstantiateView( context );
     }
 
     public void Setup( Spell spell )

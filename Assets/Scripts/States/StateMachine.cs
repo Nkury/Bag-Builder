@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class StateMachine : Manager
@@ -7,7 +8,7 @@ public class StateMachine : Manager
     private List<State> _stateMachine; // top of the stack is the end of the list
     private State top;
 
-    public override void Setup( IContext context )
+    public override async Task Setup( IContext context )
     {
         base.Setup( context );
         _stateMachine = new List<State>();
@@ -38,6 +39,7 @@ public class StateMachine : Manager
         State removedState = _stateMachine[ topIndex ];
 
         removedState.Exit();
+        removedState.DeregisterEvents();
 
         _stateMachine.RemoveAt( topIndex );
 
